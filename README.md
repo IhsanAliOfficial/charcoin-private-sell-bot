@@ -50,14 +50,9 @@ charcoin-private-sale-bot/
    ]
    ```
 
-2. **.env**
 
-   ```env
-   RPC_URL=https://api.mainnet-beta.solana.com
-   COINGECKO_API_KEY=your_api_key
-   ```
 
-3. **private\_keys.json**
+2. **private\_keys.json**
 
    ```json
    {
