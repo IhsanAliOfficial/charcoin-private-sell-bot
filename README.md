@@ -1,110 +1,44 @@
-# CharCoin Private Sale Bot
+🪙 Charcoin Sale Automator
 
-An automated Python bot to control and execute private sale token releases for CHAR Coin. Designed to enforce structured, price-based selling post-launch to protect token value and ensure fair distribution.
+A high-performance automation bot for managing CharCoin private sale releases and staged token sell-offs with precision.
 
----
+⚡ Overview
 
-## 🚀 Features
+Charcoin Sale Automator intelligently monitors real-time market prices and automatically executes staged sell orders once predefined target prices are reached.
+It ensures controlled distribution, price discipline, and transparent investor management — without manual intervention.
 
-* Load investor wallet info, token allocation, and staking percentage
-* Multi-stage sell plan with customizable target prices
-* Sell in 20 fractions per stage for smoother release
-* Real-time price tracking (CoinGecko or Pyth)
-* On-chain swap execution via Jupiter Aggregator
-* Dry-run simulation and live execution modes
-* Secure handling of wallet private keys (encrypted JSON)
+🔍 Core Features
 
----
+Dynamic Price Tracking — Continuously monitors live CHAR/USD prices via API.
 
-## 📁 Repository Structure
+Automated Stage Logic — Executes multi-stage sell strategies per investor’s target thresholds.
 
-```
-charcoin-private-sale-bot/
-├── investors.json           # Investor wallet + stage config
-├── private_keys.json        # Secure wallet key storage (never commit)
-├── .env                     # API keys, Solana RPC
-├── bot.py                   # Main bot logic
-├── utils/
-│   ├── pricing.py           # Price feed handlers
-│   └── jupiter.py           # Swap execution via Jupiter
-└── logs/                    # Execution logs
-```
+Fractional Order Execution — Splits large token sales into smaller fractions to reduce market impact.
 
----
+Secure Config via .env — Manages API keys, RPC endpoints, and private settings safely.
 
-## ⚙️ Configuration
+Logging & Auditing — Generates detailed logs for all sell triggers and investor actions.
 
-1. **investors.json**
+Multi-Investor Handling — Supports multiple wallets and custom stage-based release plans.
 
-   ```json
-   [
-     {
-       "wallet": "InakiZubizarreta.sol",
-       "total_tokens": 50400000,
-       "staking_percentage": 0.30,
-       "stages": [
-         { "stage_number": 1, "percentage_to_sell": 0.06, "target_price_usd": 0.0024 },
-         { "stage_number": 2, "percentage_to_sell": 0.06, "target_price_usd": 0.0030 }
-       ]
-     }
-   ]
-   ```
+⚙️ Tech Stack
 
+Language: Python 3.10+
 
+Dependencies: dotenv, logging, json, requests
 
-2. **private\_keys.json**
+Integrations: Solana RPC + Jupiter Swap API + CoinGecko API
 
-   ```json
-   {
-     "InakiZubizarreta.sol": "private-key-string-here"
-   }
-   ```
+🧩 Future Enhancements
 
----
+✅ Real-time CoinGecko integration (live CHAR price feed)
 
-## 🧪 Bot Modes
+✅ Actual Jupiter swap transactions
 
-| Mode      | Description                                      |
-| --------- | ------------------------------------------------ |
-| `dry-run` | Simulates selling logic, no transactions sent    |
-| `live`    | Executes swaps on Jupiter when price targets hit |
+🔜 Telegram or Discord alerts for sale triggers
 
----
+🔜 Web dashboard for investor and stage overview
 
-## 📌 Example Log Output
+🚀 Vision
 
-```
-✅ Stage 2 triggered at $0.0030 for InakiZubizarreta.sol
-🔁 Selling 30240 CHAR in 20 parts (~1512 per swap)
-✅ Remaining CHAR: 201600
-```
-
----
-
-## 🔐 Security Notice
-
-* Never commit or upload `private_keys.json` to any public repo.
-* Use per-investor wallets to limit exposure.
-* Production deployments should encrypt and lock access to key files.
-
----
-
-## 📅 Development Timeline
-
-* ✅ Phase 1: Simulation logic + CLI alerts
-* ✅ Phase 2: Real price feeds + Jupiter integration
-* 🔜 Phase 3: Admin dashboard / monitoring panel
-
----
-
-## 🤝 Credits
-
-**Lead Developer:** Nadir Ali Khan
-**Bot Strategy & Oversight:** Jorge Martinez
-**Developed By:** Team NAK (Blockchain | Automation | AI)
-
----
-
-## 📄 License
-
-MIT License — intended for internal use by the CharCoin Foundation.
+Charcoin Sale Automator was built to bring automation, precision, and trust to private token sale workflows — minimizing human error while maximizing efficiency and transparency in DeFi fundraising operations.
